@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Microlearning Project - Register</title>
+    <!-- <link rel="stylesheet" href="../static/register.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 40px;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            background-color: #a3d6ef;
+            /* Shaded color */
+            box-shadow: 10px 10px 10px rgb(14, 77, 100);
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            /* Bold text */
+
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+            /* Bold text */
+        }
+
+        .container input[type="text"],
+        .container input[type="password"],
+        .container input[type="email"],
+        .container input[type="tel"],
+        .container input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #fff;
+            /* White background for input fields */
+        }
+
+        .container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+        }
+
+        .container p {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            /* Bold text */
+        }
+
+        .container p a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            /* Bold text */
+
+        }
+
+        .container p a:hover {
+            text-decoration: underline;
+        }
+
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg,
+                    #61d954,
+                    #2ebf75);
+        }
+
+        .container {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 50px 30px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            box-shadow: 25px 25px 30px rgba(0, 0, 0, 0.15);
+            color: #111111;
+        }
+
+        label,
+        input,
+        #error-msg {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        label {
+            display: inline-block;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        input[type="email"] {
+            display: inline-block;
+            border: 2px solid #d1d3d4;
+            width: 88%;
+            height: 50px;
+            border-radius: 5px;
+            outline: none;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+
+        #icon {
+            float: right;
+            height: 50px;
+            position: relative;
+            font-size: 25px;
+            padding-top: 10px;
+        }
+
+        #error-msg {
+            display: none;
+            color: #ff2851;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        
+let emailId = document.getElementById("email-id");
+let errorMsg = document.getElementById("error-msg");
+let icon = document.getElementById("icon");
+let mailRegex = /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
+
+function checker(){
+    icon.style.display="inline-block";
+    if(emailId.value.match(mailRegex)){
+        icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+        icon.style.color = '#2ecc71';
+        errorMsg.style.display = 'none';
+        emailId.style.border = '2px solid #2ecc71';
+    }
+    else if(emailId.value == ""){
+        icon.style.display = 'none';
+        errorMsg.style.display = 'none';
+        emailId.style.border = '2px solid #d1d3d4';
+    }
+    else{
+        icon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+        icon.style.color = '#ff2851';
+        errorMsg.style.display = 'block';
+        emailId.style.border = '2px solid #ff2851';
+    }
+
+}
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Intelligent Micro Learning Project</h1>
+        <form id="registration-form" action="/register" method="POST">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="birthdate">Birth Date:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+            <label for="password">Enter password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="/login">Log in here</a></p>
+        <p>Or register with:
+            <a href="https://www.google.co.in/" class="google-book">Google</a>
+            <a href="https://www.facebook.com/" class="facebook-book">Facebook</a>
+        </p>
+    </div>
+</body>
+
+</html>

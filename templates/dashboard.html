@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+      a:link { 
+        color: blue;
+        text-decoration: none; 
+    }
+    
+    a:visited { 
+        color: orange;
+    }
+    
+    a:hover { 
+        color: rgb(175, 127, 127); 
+        text-decoration: underline; 
+    }
+    
+    a:active { 
+        background-color: rgb(77, 77, 73); 
+    }
+    
+    nav {
+        background-color: #333; 
+        color: white;       
+        padding: 15px;
+        padding-right: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .search-bar input[type="text"] {
+        padding: 6px;
+        border: none;
+        border-radius: 10px;
+        width: 500px;
+        float: left;
+        margin-right: 170px; 
+        align-self: baseline;
+    }
+    
+    .login-area button {
+        background-color: #007bff; 
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        float: left;
+        margin-right: 10px; 
+    }
+    
+    .slider {
+        position: relative;
+        width: 90%;
+        height: 400px; 
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .logo{
+        color: rgb(0,0,0);
+        font-size: 24px;    
+        font-weight: bold;
+    }
+    
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .slides img {
+        width: 100%; /* Set image width to 100% */
+        height: 100%; /* Set image height to 100% */
+        object-fit: contain; /* Ensure entire image is visible within the slider */
+    }
+    
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 2;
+    }
+    
+    .prev {
+        left: 0;
+    }
+    
+    .next {
+        right: 0;
+    }
+    
+    .course-container {
+        text-align: center;
+        padding: 40px 0;
+    }
+    
+    .course-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .course-card {
+        width: 250px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .course-card img {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .course-card h3 {
+        margin-top: 10px;
+    }
+    
+    .course-card p {
+        color: #666;
+    }
+    
+    .course-card button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    .course-card button:hover {
+        background-color: #0056b3;
+    }
+  </style>    
+
+  <script>
+    let slideIndex = 0; 
+    
+    function showSlide(n) {
+        const slides = document.querySelectorAll(".slides img");
+        if (n >= slides.length) { slideIndex = 0; }
+        if (n < 0) { slideIndex = slides.length - 1; }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        slides[slideIndex].style.display = "block"; 
+    }
+    
+    function prevSlide() {
+        showSlide(--slideIndex); 
+    }
+    
+    function nextSlide() {
+        showSlide(++slideIndex); 
+    }
+    
+    showSlide(slideIndex);
+</script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="dashboard">Intelligent Micro Learning Platform</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="class-area">
+            <button><a href="/profile" class="login-area">View Profile</a></button>
+        </div>
+        <div class="login-area">
+            <button><a href="/login">Logout</a></button>
+        </div>
+    </nav>
+
+    <div class="slider">
+        <div class="slides">
+            <img src="../static/images/1.jpg" alt="Image 1">
+            <img src="../static/images/2.jpg" alt="Image 2">
+            <img src="../static/images/3.jpg" alt="Image 3">
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <div class="course-container">
+        <h2>Featured Courses</h2>
+        <div class="course-cards">
+            <div class="course-card">
+                <img src="../static/images/cyber.avif" alt="Course 1">
+                <h3>Cyber Security</h3>
+                <p>Bootstrap Course from Beginner to Advance</p>
+                <a href="/cyber">
+                    <button>Enroll Now</button>
+                </a>
+            </div>
+            <div class="course-card">
+                <img src="../static/images/Python.jpg" alt="Course 2">
+                <h3>Python Mega Course</h3>
+                <p>Learn Python completely in 60 days by building 20 real-world applications.</p>
+                <a href="/python">
+                    <button>Enroll Now</button>
+                </a>
+            </div>
+            <div class="course-card">
+                <img src="../static/images/blockchain1.jpeg" alt="Course 3">
+                <h3>Blockchain A-Z: Build a Blockchain</h3>
+                <p>Harness the power of the most disruptive technology</p>
+                <button>Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img src="../static/images/ielts.jpeg" alt="Course 3">
+                <h3>IELTS Band 7+ Complete Prep Course</h3>
+                <p>Achieve learning outcomes for Band 7+ in every section</p>
+                <button>Enroll Now</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

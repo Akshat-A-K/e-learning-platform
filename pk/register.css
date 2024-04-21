@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 40px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background-color: #a3d6ef; /* Shaded color */
+    box-shadow: 10px 10px 10px rgb(14, 77, 100);
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold; /* Bold text */
+
+}
+
+.container label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold; /* Bold text */
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="email"],
+.container input[type="tel"],
+.container input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff; /* White background for input fields */
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #0056b3;
+}
+
+.container p {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold; /* Bold text */
+}
+
+.container p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold; /* Bold text */
+    
+}
+
+.container p a:hover {
+    text-decoration: underline;
+}
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #61d954,
+        #2ebf75
+    );
+}
+.container{
+    width: 400px;
+    background-color: #ffffff;
+    padding: 50px 30px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    box-shadow: 25px 25px 30px rgba(0,0,0,0.15);
+    color: #111111;
+}
+label,
+input,
+#error-msg{
+    font-family: 'Poppins',sans-serif;
+}
+label{
+    display: inline-block;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+input[type="email"]{
+    display: inline-block;
+    border: 2px solid #d1d3d4;
+    width: 88%;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+#icon{
+    float: right;
+    height: 50px;
+    position: relative;
+    font-size: 25px;
+    padding-top: 10px;
+}
+#error-msg{
+    display: none;
+    color: #ff2851;
+    font-size: 14px;
+    margin-top: 10px;
+}

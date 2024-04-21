@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-info p {
+            margin: 10px 0;
+        }
+        
+        .logout-button a {
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        
+        .logout-button a:hover {
+            background-color: #d93719;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fadeIn {
+            animation-name: fadeIn;
+            animation-duration: 1s;
+        }
+        
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .slideInFromLeft {
+            animation: slideInFromLeft 1s ease;
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .slideInFromRight {
+            animation: slideInFromRight 1s ease;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation-name: pulse;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        
+        /* Additional Styling */
+        .dashboard-button a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        
+        .dashboard-button a:hover {
+            background-color: #45a049;
+        }
+        
+        .profile-info p:nth-child(odd) {
+            background-color: #f2f2f2;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        .profile-info p:hover {
+            background-color: #e0e0e0;
+        }
+        
+    </style>        
+</head>
+
+<body>
+    <div class="header">
+        <h1>Intelligent Micro Learning Platform</h1>
+        <nav>
+            <div class="dashboard-button">
+                <a href="/dashboard">Dashboard</a>
+            </div>
+            <div class="logout-button">
+                <a href="/login">Logout</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <p>First Name: {{ user[0] }}</p>
+            <p>Last Name: {{ user[1] }}</p>
+            <p>Email: {{ user[2] }}</p>
+            <p>Phone: {{ user[4] }}</p>
+            <p>Birth Date: {{ user[3] }}</p>
+        </div>
+    </div>
+</body>
+
+</html>

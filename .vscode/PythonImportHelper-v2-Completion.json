@@ -1,0 +1,142 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "mysql.connector",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mysql.connector",
+        "description": "mysql.connector",
+        "detail": "mysql.connector",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def register():\n    return render_template('register.html')\n@app.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register_user():\n    if request.method == \"GET\":\n        return render_template('register.html')\n    else:\n        firstname = request.form.get(\"firstname\")\n        lastname = request.form.get(\"lastname\")\n        email = request.form.get(\"email\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "register_user",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def register_user():\n    if request.method == \"GET\":\n        return render_template('register.html')\n    else:\n        firstname = request.form.get(\"firstname\")\n        lastname = request.form.get(\"lastname\")\n        email = request.form.get(\"email\")\n        phone = request.form.get(\"phone\")\n        birthdate = request.form.get(\"birthdate\")\n        pwd = request.form.get(\"password\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def login():\n    global logged_in_email  # Reference the global variable\n    if request.method == \"POST\":\n        username = request.form.get(\"username\")\n        password = request.form.get(\"password\")\n        # Query the database to check if username and password match\n        cr.execute(\"SELECT * FROM registers WHERE email = %s AND password = %s\", (username, password))\n        user = cr.fetchone()\n        if user:\n            logged_in_email = user[2]  # Assuming email is in the third column",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def dashboard():\n    return render_template('dashboard.html')\n@app.route(\"/cyber\")\ndef cyber():\n    return render_template('cyber.html')\n@app.route(\"/python\")\ndef python():\n    return render_template('python.html')\n@app.route(\"/profile\", methods=[\"GET\"])\ndef profile():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "cyber",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def cyber():\n    return render_template('cyber.html')\n@app.route(\"/python\")\ndef python():\n    return render_template('python.html')\n@app.route(\"/profile\", methods=[\"GET\"])\ndef profile():\n    global logged_in_email\n    print(\"Profile email:\", logged_in_email)  # Check the value\n    if logged_in_email:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "python",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def python():\n    return render_template('python.html')\n@app.route(\"/profile\", methods=[\"GET\"])\ndef profile():\n    global logged_in_email\n    print(\"Profile email:\", logged_in_email)  # Check the value\n    if logged_in_email:\n        cr.execute(\"SELECT * FROM registers WHERE email = %s\", (logged_in_email,))\n        user_data = cr.fetchone()\n        print(\"User data:\", user_data)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "profile",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def profile():\n    global logged_in_email\n    print(\"Profile email:\", logged_in_email)  # Check the value\n    if logged_in_email:\n        cr.execute(\"SELECT * FROM registers WHERE email = %s\", (logged_in_email,))\n        user_data = cr.fetchone()\n        print(\"User data:\", user_data)\n        return render_template('profile.html', user=user_data)\n    else:\n        return redirect(\"/login\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "dbr",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "dbr = mysql.connector.connect(\n    host='localhost',\n    user='root',\n    password='2003',\n    database='apk1'\n)\ncr = dbr.cursor()\napp = Flask(__name__)\n# Define a global variable to hold the email value\nlogged_in_email = None",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "cr",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "cr = dbr.cursor()\napp = Flask(__name__)\n# Define a global variable to hold the email value\nlogged_in_email = None\n@app.route(\"/\", methods=[\"GET\"])\ndef register():\n    return render_template('register.html')\n@app.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register_user():\n    if request.method == \"GET\":",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n# Define a global variable to hold the email value\nlogged_in_email = None\n@app.route(\"/\", methods=[\"GET\"])\ndef register():\n    return render_template('register.html')\n@app.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register_user():\n    if request.method == \"GET\":\n        return render_template('register.html')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "logged_in_email",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "logged_in_email = None\n@app.route(\"/\", methods=[\"GET\"])\ndef register():\n    return render_template('register.html')\n@app.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register_user():\n    if request.method == \"GET\":\n        return render_template('register.html')\n    else:\n        firstname = request.form.get(\"firstname\")",
+        "detail": "app",
+        "documentation": {}
+    }
+]
